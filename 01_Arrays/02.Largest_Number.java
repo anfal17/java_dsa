@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class javabasics {
+public class Largest_Number {
 
     public static void largest(int arrays[]){
         int largest = Integer.MIN_VALUE;
