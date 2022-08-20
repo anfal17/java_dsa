@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class javabasics {
+public class Binary_search {
 
     public static int binarysearch(int arrays[], int key) {
         int start = 0;
