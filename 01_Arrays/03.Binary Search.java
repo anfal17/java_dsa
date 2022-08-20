@@ -28,3 +28,7 @@ public class Binary_search {
         System.out.println("Index of key "+key+" is "+binarysearch(arrays,key));
     }
 }
+
+
+//Time complexity of Binary search O(logn)
+//Time complexity of Linear search O(n)
