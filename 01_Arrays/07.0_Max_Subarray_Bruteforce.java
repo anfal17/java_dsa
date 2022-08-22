@@ -30,3 +30,4 @@ public class Max_Subarray_Bruteforce {
         subarray(arrays);
     }
 }
+//Time complexity O(n³) ---- 3 nested loops (brute force method)
