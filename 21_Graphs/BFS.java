@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class createGraph {
+public class BFS {
 
     static class Edge {
         int src;
@@ -46,10 +48,26 @@ public class createGraph {
         // for vertex 4
         graph[4].add(new Edge(4, 2, 2));
 
-        // Question? Find all the neighbours of vertex 2
-        for (int i = 0; i < graph[2].size(); i++) {
-            Edge e = graph[2].get(i);
-            System.out.print(e.dest+" ");
+        BFStraversral(graph);
+    }
+
+    public static void BFStraversral(ArrayList<Edge>[] graph) {
+        Queue<Integer> q = new LinkedList<>();
+        boolean vis[] = new boolean[graph.length];
+        q.add(0);
+
+        while (!q.isEmpty()) {
+            int curr = q.remove();
+
+            if(!vis[curr]){
+                System.out.print(curr+" ");
+                vis[curr] = true;
+                for (int i = 0; i < graph[curr].size(); i++) {
+                    Edge e = graph[curr].get(i);
+                    q.add(e.dest);
+                }
+            }
         }
     }
+
 }
