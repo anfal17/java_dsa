@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BFS {
+public class DFS {
 
     static class Edge {
         int src;
@@ -50,23 +50,14 @@ public class BFS {
         graph[4].add(new Edge(4, 2, 2));
     }
 
-    public static void BFStraversral(ArrayList<Edge>[] graph) {
-        Queue<Integer> q = new LinkedList<>(); //Queue for storing neighbours
-        boolean vis[] = new boolean[graph.length]; //check visited value
-        q.add(0); //Source  = 0
+    public static void DFStraversal(ArrayList<Edge>[] graph , int curr, boolean vis[]) {
+        System.out.print(curr + " ");
+        vis[curr] = true;
 
-        //run loop until queue is empty
-        while (!q.isEmpty()) {
-            int curr = q.remove();
-
-            //if node not yet visited
+        for (int i = 0; i < graph[curr].size(); i++) {
+            Edge e = graph[curr].get(i);
             if (!vis[curr]) {
-                System.out.print(curr + " "); //print
-                vis[curr] = true; //visited true
-                for (int i = 0; i < graph[curr].size(); i++) {
-                    Edge e = graph[curr].get(i);
-                    q.add(e.dest); //adding its neightbours
-                }
+                DFStraversal(graph, e.dest, vis);
             }
         }
     }
@@ -82,7 +73,7 @@ public class BFS {
 
         creategraph(graph);
 
-        BFStraversral(graph);
+        DFStraversral(graph,0,new boolean[]);
     }
 
 }
