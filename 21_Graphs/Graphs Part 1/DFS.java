@@ -1,11 +1,9 @@
-/*---does the src and dest have a path between work */
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class hasPath {
+public class DFS {
 
     static class Edge {
         int src;
@@ -52,24 +50,21 @@ public class hasPath {
         graph[4].add(new Edge(4, 2, 2));
     }
 
+    public static void DFStraversal(ArrayList<Edge>[] graph , int curr, boolean vis[]) {
+        System.out.print(curr + " ");
+        vis[curr] = true;
+
+        for (int i = 0; i < graph[curr].size(); i++) {
+            Edge e = graph[curr].get(i);
+            if (!vis[e.dest]) {
+                DFStraversal(graph, e.dest, vis);
+            }
+        }
+    }
+
     //Time complexity is O(n) 
     //For adjacency LIST its O(V+E)
     //For adjacency matrix its O(V^2)
-
-    public static boolean hasPath(ArrayList<Edge>[] graph, int src , int dest , boolean[] vis){
-        if (src == dest) {
-            return true;
-        }
-        vis[src] = true;
-        for (int i = 0; i < graph[src].size(); i++) {
-            Edge e = graph[src].get(i);
-
-            if(!vis[e.dest] && hasPath(graph,e.dest, dest,vis)){
-                return true;
-            }
-        }
-        return false;
-    }
 
     public static void main(String[] args) {
         int V = 5;
@@ -78,7 +73,7 @@ public class hasPath {
 
         creategraph(graph);
 
-        hasPath(graph,0,5,new boolean[V]);
+        DFStraversal(graph,0,new boolean[V]);
     }
 
 }
