@@ -15,6 +15,7 @@ public class directedCycleDetection {
      * cycle is found if a neighbpur is visited and stack[neigh] == true;
      * We modify the DFS algo tofind cycle in a graph
      */
+    //TC O(V+E)
 
     static class Edge {
         int src;
