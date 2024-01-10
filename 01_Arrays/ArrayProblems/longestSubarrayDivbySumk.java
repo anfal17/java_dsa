@@ -1,6 +1,7 @@
+import java.util.HashMap;
+import java.util.Map;
 
-
-public class longestSubarraySumk {
+public class longestSubarrayDivbySumk {
 
     int longSubarrWthSumDivByK(int arr[], int n, int k)
     {
