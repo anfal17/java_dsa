@@ -53,7 +53,7 @@ public class Krushkals {
       return x;
     }
     return find(par[x]);
-    //optimised return par[x] = find[x];
+    //optimised return par[x] = find[par[x]];
     //path compression - tree size decreases
   }
 
