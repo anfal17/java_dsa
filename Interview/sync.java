@@ -1,8 +1,6 @@
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
 import java.util.*;
 
-class HelloWorld {
+class sync {
     public static void main(String[] args) {
         int arr[] = {1, 3, 7, 8, 4, 15, 6};
         
